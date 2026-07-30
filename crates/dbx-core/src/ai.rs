@@ -69,6 +69,7 @@ pub enum AiProvider {
     Gemini,
     Deepseek,
     Qwen,
+    MiniMax,
     Ollama,
     #[serde(rename = "openai-compatible")]
     OpenaiCompatible,
@@ -90,6 +91,7 @@ impl AiProvider {
             AiProvider::Gemini => "gemini",
             AiProvider::Deepseek => "deepseek",
             AiProvider::Qwen => "qwen",
+            AiProvider::MiniMax => "minimax",
             AiProvider::Ollama => "ollama",
             AiProvider::OpenaiCompatible => "openai-compatible",
             AiProvider::ClaudeCodeCli => "claude-code-cli",
@@ -594,6 +596,7 @@ pub fn resolve_endpoint(config: &AiConfig) -> String {
         AiProvider::Openai
         | AiProvider::Deepseek
         | AiProvider::Qwen
+        | AiProvider::MiniMax
         | AiProvider::Ollama
         | AiProvider::OpenaiCompatible
         | AiProvider::Custom => {
@@ -1045,6 +1048,7 @@ fn provider_requires_api_key(provider: &AiProvider) -> bool {
     matches!(
         provider,
         AiProvider::Claude | AiProvider::Openai | AiProvider::Gemini | AiProvider::Deepseek | AiProvider::Qwen
+            | AiProvider::MiniMax
     )
 }
 
@@ -1459,7 +1463,8 @@ pub async fn list_models_core(config: &AiConfig) -> Result<Vec<AiModelInfo>, Str
                     let models = list_openai_compatible_models(&client, config).await?;
                     retain_ollama_completion_models(&client, config, models).await
                 }
-                AiProvider::Openai | AiProvider::Deepseek | AiProvider::Qwen | AiProvider::OpenaiCompatible => {
+                AiProvider::Openai | AiProvider::Deepseek | AiProvider::Qwen | AiProvider::MiniMax
+                | AiProvider::OpenaiCompatible => {
                     list_openai_compatible_models(&client, config).await?
                 }
                 AiProvider::Custom => {
@@ -2392,6 +2397,7 @@ pub async fn complete(request: &AiCompletionRequest) -> Result<String, String> {
                 AiProvider::Openai
                 | AiProvider::Deepseek
                 | AiProvider::Qwen
+                | AiProvider::MiniMax
                 | AiProvider::Ollama
                 | AiProvider::OpenaiCompatible => {
                     if request.config.api_style == AiApiStyle::Responses {
@@ -2443,6 +2449,7 @@ pub async fn stream(
         AiProvider::Openai
         | AiProvider::Deepseek
         | AiProvider::Qwen
+        | AiProvider::MiniMax
         | AiProvider::Ollama
         | AiProvider::OpenaiCompatible => {
             if request.config.api_style == AiApiStyle::Responses {
@@ -4695,7 +4702,7 @@ mod tests {
         }
 
         for provider in
-            [AiProvider::Claude, AiProvider::Openai, AiProvider::Gemini, AiProvider::Deepseek, AiProvider::Qwen]
+            [AiProvider::Claude, AiProvider::Openai, AiProvider::Gemini, AiProvider::Deepseek, AiProvider::Qwen, AiProvider::MiniMax]
         {
             let config = AiConfig { provider, ..base.clone() };
             assert_eq!(validate_config(&config).unwrap_err(), "API key is required");
@@ -4831,6 +4838,44 @@ mod tests {
         let provider_json = serde_json::to_string(&AiProvider::AnthropicCompatible).unwrap();
         assert_eq!(provider_json, r#""anthropic-compatible""#);
         assert!(matches!(serde_json::from_str::<AiProvider>(&provider_json).unwrap(), AiProvider::AnthropicCompatible));
+    }
+
+    #[test]
+    fn minimax_provider_uses_openai_compatible_endpoints_and_round_trips() {
+        let config = AiConfig {
+            provider: AiProvider::MiniMax,
+            api_key: "key".to_string(),
+            auth_method: AiAuthMethod::Bearer,
+            endpoint: "https://api.minimax.io/v1".to_string(),
+            model: "MiniMax-M3".to_string(),
+            models: Vec::new(),
+            api_style: AiApiStyle::Completions,
+            proxy_enabled: false,
+            proxy_url: String::new(),
+            enable_thinking: true,
+            reasoning_level: AiReasoningLevel::Default,
+            runtime_effort: None,
+            context_window: None,
+            max_retries: None,
+            codex_cli_path: None,
+            codex_cli_env: Default::default(),
+            claude_code_cli_path: None,
+            claude_code_cli_env: Default::default(),
+            pi_agent_cli_path: None,
+            pi_agent_cli_env: Default::default(),
+        };
+
+        assert!(!uses_anthropic_messages_api(&config));
+        assert_eq!(resolve_endpoint(&config), "https://api.minimax.io/v1/chat/completions");
+        assert_eq!(resolve_model_list_endpoint(&config).unwrap(), "https://api.minimax.io/v1/models");
+        assert!(provider_requires_api_key(&config.provider));
+
+        let no_key = AiConfig { api_key: String::new(), ..config.clone() };
+        assert_eq!(validate_config(&no_key).unwrap_err(), "API key is required");
+
+        let provider_json = serde_json::to_string(&AiProvider::MiniMax).unwrap();
+        assert_eq!(provider_json, r#""minimax""#);
+        assert!(matches!(serde_json::from_str::<AiProvider>(&provider_json).unwrap(), AiProvider::MiniMax));
     }
 
     #[test]
@@ -6409,6 +6454,7 @@ mod tests {
             AiProvider::Deepseek,
             AiProvider::Qwen,
             AiProvider::Ollama,
+            AiProvider::MiniMax,
         ] {
             let mut config = test_config(provider.clone());
             config.max_retries = None;
