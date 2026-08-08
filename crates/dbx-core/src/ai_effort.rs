@@ -76,7 +76,7 @@ pub fn static_effort_capability(config: &AiConfig, model_id: &str) -> Option<AiE
         AiProvider::Deepseek => deepseek_capability(&model, source),
         AiProvider::Qwen => qwen_capability(&model, source),
         AiProvider::Ollama => ollama_capability(&model, source),
-        AiProvider::AnthropicCompatible | AiProvider::OpenaiCompatible | AiProvider::Custom => {
+        AiProvider::AnthropicCompatible | AiProvider::OpenaiCompatible | AiProvider::MiniMax | AiProvider::Custom => {
             Some(AiEffortCapability::FreeText { placeholder: None, source: AiCapabilitySource::Custom })
         }
         AiProvider::Claude | AiProvider::CodexCli | AiProvider::ClaudeCodeCli | AiProvider::PiAgentCli => None,
@@ -183,6 +183,7 @@ pub fn registry_source_url(provider: &AiProvider) -> Option<&'static str> {
         | AiProvider::CodexCli
         | AiProvider::ClaudeCodeCli
         | AiProvider::PiAgentCli
+        | AiProvider::MiniMax
         | AiProvider::Custom => None,
     }
 }
@@ -241,7 +242,9 @@ pub fn apply_runtime_effort(body: &mut Value, config: &AiConfig) {
         AiProvider::Deepseek => apply_deepseek_effort(object, selection),
         AiProvider::Qwen => apply_qwen_effort(object, selection),
         AiProvider::Ollama => apply_openai_effort(object, &config.api_style, selection),
-        AiProvider::Openai | AiProvider::OpenaiCompatible => apply_openai_effort(object, &config.api_style, selection),
+        AiProvider::Openai | AiProvider::OpenaiCompatible | AiProvider::MiniMax => {
+            apply_openai_effort(object, &config.api_style, selection)
+        }
         AiProvider::Custom => {
             if config.api_style == AiApiStyle::AnthropicMessages {
                 apply_claude_effort(object, selection);
@@ -405,7 +408,7 @@ mod tests {
 
     #[test]
     fn free_text_effort_uses_the_translated_frontend_placeholder() {
-        for provider in [AiProvider::AnthropicCompatible, AiProvider::OpenaiCompatible, AiProvider::Custom] {
+        for provider in [AiProvider::AnthropicCompatible, AiProvider::OpenaiCompatible, AiProvider::Custom, AiProvider::MiniMax] {
             let capability = static_effort_capability(&config(provider, "custom-model"), "custom-model").unwrap();
             let AiEffortCapability::FreeText { placeholder, .. } = capability else {
                 panic!("expected free-text capability");
