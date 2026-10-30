@@ -1,13 +1,13 @@
 {
   "repository": "t8y2/dbx",
-  "generatedAt": "2026-10-29T22:08:21.834Z",
-  "stars": 28166,
+  "generatedAt": "2026-10-30T21:45:28.134Z",
+  "stars": 28262,
   "contributors": [
     {
       "login": "t8y2",
       "avatarUrl": "https://avatars.githubusercontent.com/u/77960507?v=4",
       "profileUrl": "https://github.com/t8y2",
-      "commits": 4086,
+      "commits": 4090,
       "mergedPullRequests": 35,
       "firstContributionAt": "2026-04-30T08:14:51Z",
       "latestContributionAt": "2026-10-04T17:13:55Z"
@@ -16,10 +16,10 @@
       "login": "zipg",
       "avatarUrl": "https://avatars.githubusercontent.com/u/4047349?v=4",
       "profileUrl": "https://github.com/zipg",
-      "commits": 1158,
-      "mergedPullRequests": 1152,
+      "commits": 1159,
+      "mergedPullRequests": 1153,
       "firstContributionAt": "2026-06-22T06:10:59Z",
-      "latestContributionAt": "2026-10-29T17:19:51Z"
+      "latestContributionAt": "2026-10-30T03:47:24Z"
     },
     {
       "login": "eryajf",
@@ -88,19 +88,19 @@
       "login": "yiqiui",
       "avatarUrl": "https://avatars.githubusercontent.com/u/49514152?v=4",
       "profileUrl": "https://github.com/yiqiui",
-      "commits": 92,
-      "mergedPullRequests": 92,
+      "commits": 96,
+      "mergedPullRequests": 96,
       "firstContributionAt": "2026-09-15T06:20:25Z",
-      "latestContributionAt": "2026-10-29T18:52:31Z"
+      "latestContributionAt": "2026-10-30T03:47:15Z"
     },
     {
       "login": "thailoc-dev",
       "avatarUrl": "https://avatars.githubusercontent.com/u/113083148?v=4",
       "profileUrl": "https://github.com/thailoc-dev",
-      "commits": 88,
-      "mergedPullRequests": 89,
+      "commits": 89,
+      "mergedPullRequests": 90,
       "firstContributionAt": "2026-09-10T02:47:44Z",
-      "latestContributionAt": "2026-10-29T14:33:49Z"
+      "latestContributionAt": "2026-10-30T03:46:38Z"
     },
     {
       "login": "efeire",
@@ -133,10 +133,10 @@
       "login": "dienaso",
       "avatarUrl": "https://avatars.githubusercontent.com/u/4003733?v=4",
       "profileUrl": "https://github.com/dienaso",
-      "commits": 56,
-      "mergedPullRequests": 56,
+      "commits": 57,
+      "mergedPullRequests": 57,
       "firstContributionAt": "2026-07-24T03:23:39Z",
-      "latestContributionAt": "2026-10-29T15:58:36Z"
+      "latestContributionAt": "2026-10-30T02:31:33Z"
     },
     {
       "login": "onceMisery",
@@ -1678,6 +1678,15 @@
       "latestContributionAt": "2026-10-29T16:15:25Z"
     },
     {
+      "login": "MomentarySixthSense",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/179086595?v=4",
+      "profileUrl": "https://github.com/MomentarySixthSense",
+      "commits": 2,
+      "mergedPullRequests": 2,
+      "firstContributionAt": "2026-10-28T07:59:32Z",
+      "latestContributionAt": "2026-10-30T04:47:57Z"
+    },
+    {
       "login": "ninggc",
       "avatarUrl": "https://avatars.githubusercontent.com/u/16892791?v=4",
       "profileUrl": "https://github.com/ninggc",
@@ -2938,15 +2947,6 @@
       "latestContributionAt": "2026-08-29T20:36:35Z"
     },
     {
-      "login": "MomentarySixthSense",
-      "avatarUrl": "https://avatars.githubusercontent.com/u/179086595?v=4",
-      "profileUrl": "https://github.com/MomentarySixthSense",
-      "commits": 1,
-      "mergedPullRequests": 1,
-      "firstContributionAt": "2026-10-28T07:59:32Z",
-      "latestContributionAt": "2026-10-28T10:49:42Z"
-    },
-    {
       "login": "monellin",
       "avatarUrl": "https://avatars.githubusercontent.com/u/17845081?v=4",
       "profileUrl": "https://github.com/monellin",
@@ -3125,6 +3125,15 @@
       "mergedPullRequests": 1,
       "firstContributionAt": "2026-10-01T11:46:29Z",
       "latestContributionAt": "2026-10-01T15:45:13Z"
+    },
+    {
+      "login": "seaways1015-afk",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/296356369?v=4",
+      "profileUrl": "https://github.com/seaways1015-afk",
+      "commits": 1,
+      "mergedPullRequests": 1,
+      "firstContributionAt": "2026-10-30T02:06:05Z",
+      "latestContributionAt": "2026-10-30T04:11:20Z"
     },
     {
       "login": "sedax90",
