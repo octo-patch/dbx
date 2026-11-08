@@ -1,13 +1,13 @@
 {
   "repository": "t8y2/dbx",
-  "generatedAt": "2026-11-07T21:10:27.131Z",
-  "stars": 29470,
+  "generatedAt": "2026-11-08T21:26:24.185Z",
+  "stars": 29567,
   "contributors": [
     {
       "login": "t8y2",
       "avatarUrl": "https://avatars.githubusercontent.com/u/77960507?v=4",
       "profileUrl": "https://github.com/t8y2",
-      "commits": 4149,
+      "commits": 4152,
       "mergedPullRequests": 35,
       "firstContributionAt": "2026-04-30T08:14:51Z",
       "latestContributionAt": "2026-10-04T17:13:55Z"
@@ -34,10 +34,10 @@
       "login": "lxk955",
       "avatarUrl": "https://avatars.githubusercontent.com/u/164191365?v=4",
       "profileUrl": "https://github.com/lxk955",
-      "commits": 274,
-      "mergedPullRequests": 268,
+      "commits": 275,
+      "mergedPullRequests": 269,
       "firstContributionAt": "2026-10-01T06:24:16Z",
-      "latestContributionAt": "2026-11-07T17:05:03Z"
+      "latestContributionAt": "2026-11-08T06:06:33Z"
     },
     {
       "login": "Abeautifulsnow",
@@ -88,10 +88,10 @@
       "login": "yiqiui",
       "avatarUrl": "https://avatars.githubusercontent.com/u/49514152?v=4",
       "profileUrl": "https://github.com/yiqiui",
-      "commits": 97,
-      "mergedPullRequests": 97,
+      "commits": 98,
+      "mergedPullRequests": 98,
       "firstContributionAt": "2026-09-15T06:20:25Z",
-      "latestContributionAt": "2026-11-04T11:30:23Z"
+      "latestContributionAt": "2026-11-08T06:11:03Z"
     },
     {
       "login": "thailoc-dev",
@@ -277,10 +277,10 @@
       "login": "Acd-kk",
       "avatarUrl": "https://avatars.githubusercontent.com/u/248843626?v=4",
       "profileUrl": "https://github.com/Acd-kk",
-      "commits": 23,
-      "mergedPullRequests": 23,
+      "commits": 24,
+      "mergedPullRequests": 24,
       "firstContributionAt": "2026-10-19T12:34:48Z",
-      "latestContributionAt": "2026-11-07T15:34:04Z"
+      "latestContributionAt": "2026-11-08T14:20:05Z"
     },
     {
       "login": "mr-dadong",
@@ -445,6 +445,15 @@
       "latestContributionAt": "2026-11-07T17:01:52Z"
     },
     {
+      "login": "imcman",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/108491624?v=4",
+      "profileUrl": "https://github.com/imcman",
+      "commits": 14,
+      "mergedPullRequests": 14,
+      "firstContributionAt": "2026-10-28T10:41:36Z",
+      "latestContributionAt": "2026-11-08T04:18:55Z"
+    },
+    {
       "login": "juvevood",
       "avatarUrl": "https://avatars.githubusercontent.com/u/1421513?v=4",
       "profileUrl": "https://github.com/juvevood",
@@ -461,15 +470,6 @@
       "mergedPullRequests": 13,
       "firstContributionAt": "2026-09-11T02:18:22Z",
       "latestContributionAt": "2026-09-21T04:28:32Z"
-    },
-    {
-      "login": "imcman",
-      "avatarUrl": "https://avatars.githubusercontent.com/u/108491624?v=4",
-      "profileUrl": "https://github.com/imcman",
-      "commits": 13,
-      "mergedPullRequests": 13,
-      "firstContributionAt": "2026-10-28T10:41:36Z",
-      "latestContributionAt": "2026-11-05T12:13:37Z"
     },
     {
       "login": "OOMEcho",
@@ -616,6 +616,15 @@
       "latestContributionAt": "2026-10-01T07:16:38Z"
     },
     {
+      "login": "ThugKd",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/19286886?v=4",
+      "profileUrl": "https://github.com/ThugKd",
+      "commits": 11,
+      "mergedPullRequests": 11,
+      "firstContributionAt": "2026-11-05T07:52:24Z",
+      "latestContributionAt": "2026-11-08T14:18:50Z"
+    },
+    {
       "login": "Bacon2994",
       "avatarUrl": "https://avatars.githubusercontent.com/u/108093786?v=4",
       "profileUrl": "https://github.com/Bacon2994",
@@ -650,15 +659,6 @@
       "mergedPullRequests": 10,
       "firstContributionAt": "2026-07-31T04:15:42Z",
       "latestContributionAt": "2026-10-14T07:44:10Z"
-    },
-    {
-      "login": "ThugKd",
-      "avatarUrl": "https://avatars.githubusercontent.com/u/19286886?v=4",
-      "profileUrl": "https://github.com/ThugKd",
-      "commits": 10,
-      "mergedPullRequests": 10,
-      "firstContributionAt": "2026-11-05T07:52:24Z",
-      "latestContributionAt": "2026-11-07T14:46:28Z"
     },
     {
       "login": "jeeinn",
